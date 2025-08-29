@@ -87,7 +87,7 @@ export default function Home() {
 
       <div className="mt-8 flex flex-wrap items-center gap-3">
         <a
-          href="#projects"
+          href="/images1/YASIRU_NUWAN__CV.pdf"
           className="rounded-xl bg-gradient-to-r from-purple-500 to-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-purple-800/20 focus:outline-none focus:ring-2 focus:ring-purple-400/60"
         >
           Download CV

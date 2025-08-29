@@ -33,16 +33,16 @@ export default function Navbar() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Brand */}
-          <a
-            href="/"
-            className="group flex items-center gap-2 rounded-xl px-2 py-1"
-            aria-label="Go to homepage"
-          >
-            <div className="h-6 w-6 rounded-md bg-gradient-to-r from-purple-500 to-blue-600" />
-            <span className="text-sm font-semibold tracking-wide">
-              YasiruNuwan<span className="text-slate-400"></span>
-            </span>
-          </a>
+         <a href="/" className="group flex items-center gap-2 rounded-xl px-2 py-1" aria-label="Go to homepage">
+        <img
+          src="/images1/brand.jpg"             // public/logo.png
+          alt="Yasiru Nuwan logo"
+          className="h-7 w-7 rounded-full object-cover ring-1 ring-white/10"
+        />
+        <span className="text-sm font-semibold tracking-wide">
+          YasiruNuwan<span className="text-slate-400"></span>
+        </span>
+      </a>
 
           {/* Desktop nav */}
           <div className="hidden items-center gap-2 md:flex">

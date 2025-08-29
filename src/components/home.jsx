@@ -183,35 +183,31 @@ export default function Home() {
               viewport={{ once: true }}
               variants={fadeUp(0.05 * i)}
             >
-              <Card className="p-0">
+             
+              <Card className="p-1">
                 <div className="relative aspect-video overflow-hidden">
                   <img
-                    src={`https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1600&auto=format&fit=crop`}
+                    src={`/projects/UI/fittness.png`}
                     alt={`Project ${idx}`}
                     className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                 </div>
+
                 <div className="p-6">
-                  <h3 className="text-lg font-semibold">Project {idx} — Modern UI</h3>
+                  <h3 className="text-lg font-semibold">FitNexia</h3>
                   <p className="mt-2 line-clamp-2 text-sm text-slate-300">
-                    Sleek, responsive, and animated interface demonstrating best practices with React,
-                    Tailwind, and Framer Motion.
+                    Fitness-tracking app designed for users to seamlessly track, set, and achieve their health goals. Created with Figma, this app...
                   </p>
                   <div className="mt-4 flex flex-wrap gap-2">
-                    <Pill>React</Pill>
-                    <Pill>Tailwind</Pill>
-                    <Pill>Motion</Pill>
+                    <Pill>Figma</Pill>
+                    <Pill>Photoshop</Pill>
+                    <Pill>UI</Pill>
+                    <Pill>UX</Pill>
                   </div>
                   <div className="mt-5 flex gap-3">
-                    <a
-                      href="#"
-                      className="text-sm font-semibold text-blue-400 hover:text-blue-300"
-                      aria-label="Open case study"
-                    >
-                      Case Study →
-                    </a>
+                  
                     <a
                       href="#"
                       className="text-sm font-semibold text-purple-400 hover:text-purple-300"

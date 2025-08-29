@@ -269,10 +269,62 @@ const PROJECTS = [
     demo: "https://www.figma.com/design/zueiaqWRhUccYCfUJakWbs/Untitled?node-id=0-1&t=bxU1TPG05RLFk92d-1",
 
   },
+   {
+    id: "pv-19",
+    title: "CookieVerse",
+    category: "Web Application",
+    cover:
+      "/projects/web/cookieVerse.png",
+    stack: ["React.js","Vite", "Tailwind CSS","MongoDB","Spring Boot"],
+    summary:
+      "This is full-stack web application designed for food enthusiasts and aspiring chefs to learn, share, and connect through the joy of cooking.",
+    demo: "https://github.com/Sarith-Samarakoon/CookieVerse",
+
+  },
+   {
+    id: "pv-20",
+    title: "Poster",
+    category: "Graphic Design",
+    cover:
+      "/projects/Graphic/p4.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+      {
+    id: "pv-21",
+    title: "Cover Page",
+    category: "Graphic Design",
+    cover:
+      "/projects/Graphic/b1.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+     {
+    id: "pv-22",
+    title: "Banner",
+    category: "Graphic Design",
+    cover:
+      "/projects/Graphic/banner1.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+     {
+    id: "pv-23",
+    title: "Tuition Classes Advertisement",
+    category: "Graphic Design",
+    cover:
+      "/projects/Graphic/class2.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },   {
+    id: "pv-24",
+    title: "Logo",
+    category: "Graphic Design",
+    cover:
+      "/projects/Graphic/l5.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+ 
    
 ];
 
-const CATEGORIES = ["All", "Web Design", "App Design", "Graphic Design", "Mobile App", "Web Application"];
+const CATEGORIES = ["All", "Web Design UIs", "App Design UIs", "Graphic Design", "Mobile Application", "Web Application"];
 
 /* --------------------------- C O M P O N E N T --------------------------- */
 export default function Services() {

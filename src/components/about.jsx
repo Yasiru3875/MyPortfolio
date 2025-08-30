@@ -626,7 +626,7 @@ export default function About() {
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
               <a
-                href="mailto:hello@example.com"
+                href="yasiruln215@gmail.com"
                 className="rounded-xl bg-gradient-to-r from-purple-500 to-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-purple-800/20"
               >
                 Email Me

@@ -1,21 +1,7 @@
 // src/components/Services.jsx
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import {
-  Brush,
-  Code2,
-  MonitorSmartphone,
-  Cpu,
-  LineChart,
-  Layers,
-  ExternalLink,
-  FileText,
-  Search,
-  Tag,
-  Sparkles,
-  PenTool,
-  Image,
-} from "lucide-react";
+import { Brush, Code2, ExternalLink, Search, Tag, PenTool } from "lucide-react";
 
 const fade = (d = 0) => ({
   hidden: { opacity: 0, y: 22 },
@@ -42,56 +28,65 @@ const SERVICES = [
     title: "UI/UX & Design Systems",
     desc: "Wireframes, prototypes, and token-driven components built in Figma / Adobe.",
     icon: Brush,
-    bullets: ["User flows, low→hi-fi prototypes","Design tokens & reusable components","Developer handoff: specs, assets", "Accessibility patterns & usability testing"],
+    bullets: [
+      "User flows, low→hi-fi prototypes",
+      "Design tokens & reusable components",
+      "Developer handoff: specs, assets",
+      "Accessibility patterns & usability testing",
+    ],
   },
   {
     title: "Frontend Engineering",
     desc: "Modern, responsive UIs with HTML, CSS, JavaScript and React where needed.",
     icon: Code2,
-    bullets: ["Semantic, accessible markup", "Clean component architecture", "Tailwind styling & utilities", "Performance: code-splitting, lazy routes, CWV."],
+    bullets: [
+      "Semantic, accessible markup",
+      "Clean component architecture",
+      "Tailwind styling & utilities",
+      "Performance: code-splitting, lazy routes, CWV.",
+    ],
   },
   {
     title: "Adobe Photoshop & Illustrator",
     desc: "Brand visuals, hero imagery, and scalable vector assets for web and print.",
     icon: PenTool,
-    bullets: [ "Logos, Banners, Cover Pages and vector illustrations", "Brand guidelines & asset kits", "Retouching, compositing, color grading", "Social media creatives(Posters, Banners)"],
+    bullets: [
+      "Logos, Banners, Cover Pages and vector illustrations",
+      "Brand guidelines & asset kits",
+      "Retouching, compositing, color grading",
+      "Social media creatives",
+    ],
   },
 ];
 
-/* Example projects — replace with your real data */
-const PROJECTS = [
+/* Export projects so Home.jsx can consume the first 6 */
+export const PROJECTS = [
   {
     id: "pv-01",
     title: "FitNexia",
     category: "App Design",
-    cover:
-      "/projects/UI/fittness.png",
-    stack: ["Figma","Photoshop", "UI","UX"],
+    cover: "/projects/UI/fittness.png",
+    stack: ["Figma", "Photoshop", "UI", "UX"],
     summary:
       "Fitness-tracking app designed for users to seamlessly track, set, and achieve their health goals. Created with Figma, this app combines functionality with motivation to empower fitness enthusiasts and beginners alike!",
     demo: "https://www.figma.com/design/z9Cnh8mZ9wCDnG3mtJ4dQ4/Fitnexia?node-id=0-1&t=Qa6GvRtY1ylwx98b-1",
   },
-  
- 
   {
     id: "pv-02",
     title: "SRIFOOD",
     category: "Web Design",
-    cover:
-      "/projects/UI/SRIFOOD.png",
-    stack: ["Figma","Photoshop", "UI","UX"],
+    cover: "/projects/UI/SRIFOOD.png",
+    stack: ["Figma", "Photoshop", "UI", "UX"],
     summary:
       "This website is crafted to captivate food enthusiasts with a seamless interface, delicious visuals, and user-friendly navigation.",
     demo: "https://www.figma.com/design/LYpWX9b1cSPHBLUpWcvXui/SRIFOOD?node-id=0-1&t=grFFMRi7BQ2sYvoH-1",
-  
   },
   {
     id: "pv-03",
     title: "BEATNEST",
     category: "App Design",
-    cover:
-      "/projects/UI/BEATNEST.jpg",
-    stack: ["Figma","Photoshop", "UI","UX"],
+    cover: "/projects/UI/BEATNEST.jpg",
+    stack: ["Figma", "Photoshop", "UI", "UX"],
     summary:
       "Designed for music enthusiasts, BeatNest offers a visually appealing and intuitive interface, delivering seamless access to your favourite tunes.",
     demo: "https://www.figma.com/design/iOYJueNma4wx8M7o2m9Rk5/Untitled?node-id=0-1&t=aE6TvWsKj4ruYErs-1",
@@ -100,231 +95,477 @@ const PROJECTS = [
     id: "pv-04",
     title: "Login Page",
     category: "Web Design",
-    cover:
-      "/projects/UI/Login.jpg",
-    stack: ["Figma","Photoshop", "UI","UX"],
+    cover: "/projects/UI/Login.jpg",
+    stack: ["Figma", "Photoshop", "UI", "UX"],
     summary:
       "Sign in to continue your experience: save favorites, sync progress, track activity, and stay secure everywhere.",
-    demo: "https://www.figma.com/proto/nan93HP5YdieJ2exeoYsPE/Login?page-id=0%3A1&node-id=7-88&t=DfTLiUXcyP4sIiWr-1",
- 
+    demo:
+      "https://www.figma.com/proto/nan93HP5YdieJ2exeoYsPE/Login?page-id=0%3A1&node-id=7-88&t=DfTLiUXcyP4sIiWr-1",
   },
-   {
+  {
     id: "pv-05",
     title: "FlavourRush",
     category: "App Design",
-    cover:
-      "/projects/UI/flavourRush.jpg",
-    stack: ["Figma","Photoshop", "UI","UX"],
+    cover: "/projects/UI/flavourRush.jpg",
+    stack: ["Figma", "Photoshop", "UI", "UX"],
     summary:
       "This app is designed to provide a seamless and delightful experience, making food ordering faster, easier, and more enjoyable.",
     demo: "https://www.figma.com/design/ucY1AcGVsXnY5QfsZ63Ml2/FlavourRush?node-id=0-1&t=zmFXaPR5zmQIeuZU-1",
-    
   },
-  
-   {
+  {
     id: "pv-06",
     title: "Banking App",
     category: "App Design",
-    cover:
-      "/projects/UI/bankingApp.jpg",
-    stack: ["Figma","Photoshop", "UI","UX"],
+    cover: "/projects/UI/bankingApp.jpg",
+    stack: ["Figma", "Photoshop", "UI", "UX"],
     summary:
       "This sleek and modern banking app ensures users have a seamless and secure experience managing their finances.",
     demo: "https://www.figma.com/design/PQu0DjOyVnTp91Aac6Wi4n/Untitled?node-id=0-1&t=iVFDl2icjpar2fJ6-1",
   },
-   {
+  {
     id: "pv-07",
     title: "BIC",
     category: "Web Design",
-    cover:
-      "/projects/UI/BIC.png",
-    stack: ["Figma","Photoshop", "UI","UX"],
+    cover: "/projects/UI/BIC.png",
+    stack: ["Figma", "Photoshop", "UI", "UX"],
     summary:
       "Exciting challenge of redesigning the BIC website, focusing on improving user experience and usability across key pages. ",
     demo: "https://www.figma.com/design/Y6zBLShgJcb1W7Oogg9rhe/BIC-Final-1?node-id=0-1&t=E35gSXU3RvMeGm42-1",
   },
-   {
+  {
     id: "pv-08",
     title: "GYM",
     category: "Web Design",
-    cover:
-      "/projects/UI/GYM.png",
-    stack: ["Figma","Photoshop", "UI","UX"],
+    cover: "/projects/UI/GYM.png",
+    stack: ["Figma", "Photoshop", "UI", "UX"],
     summary:
       "This project combines bold visuals, user-friendly navigation, and powerful content sections to help gyms attract new members, showcase their services, and build a strong online presence.",
-    demo: "https://www.figma.com/proto/IzSm8A8jCIH3MLV3QYyx2M/GYM?page-id=0%3A1&node-id=1-2&p=f&viewport=353%2C114%2C0.1&t=6rbffTLot1NDVvvO-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1%3A2",
+    demo:
+      "https://www.figma.com/proto/IzSm8A8jCIH3MLV3QYyx2M/GYM?page-id=0%3A1&node-id=1-2&p=f&viewport=353%2C114%2C0.1&t=6rbffTLot1NDVvvO-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1%3A2",
   },
-   {
+  {
     id: "pv-09",
     title: "Education App",
     category: "App Design",
-    cover:
-      "/projects/UI/eduhub.jpg",
-    stack: ["Figma","Photoshop", "UI","UX"],
+    cover: "/projects/UI/eduhub.jpg",
+    stack: ["Figma", "Photoshop", "UI", "UX"],
     summary:
-      "I’m excited to share my latest project—SL Edu+, an E-Learning Mobile App designed to make education accessible, engaging, and seamless for students everywhere.",
+      "SL Edu+, an E-Learning Mobile App designed to make education accessible, engaging, and seamless for students everywhere.",
     demo: "https://www.figma.com/design/JsYZ7EW0oaCV6ItPzpWWwo/EDU-hub?node-id=0-1&t=mFC2xqVgyv5kLvXN-1",
-
   },
-   {
+  {
     id: "pv-10",
     title: "Fashion Web Store",
     category: "Web Design",
-    cover:
-      "/projects/UI/newFashion.jpg",
-    stack: ["Figma","Photoshop", "UI","UX"],
+    cover: "/projects/UI/newFashion.jpg",
+    stack: ["Figma", "Photoshop", "UI", "UX"],
     summary:
       "This website takes users on a stylish, curated journey to effortlessly discover their favourite fashion pieces.",
     demo: "https://www.figma.com/design/QCHhP7AkU0C3w7vpyhj4Bq/Untitled?node-id=0-1&t=BnTVmE80GigrMSfH-1",
   },
-   {
+  {
     id: "pv-11",
     title: "Next Gen",
     category: "Web Design",
-    cover:
-      "/projects/UI/Game.png",
-    stack: ["Figma","Photoshop", "UI","UX"],
+    cover: "/projects/UI/Game.png",
+    stack: ["Figma", "Photoshop", "UI", "UX"],
     summary:
       "This website guides you into next-gen VR—discover gear, demos, and immersive experiences.",
     demo: "https://www.figma.com/design/p9T77gzUJCOBaXRZFWkmdQ/Game?node-id=0-1&t=1elmy2AzmIyp2oY5-1",
-    
   },
-   {
+  {
     id: "pv-12",
     title: "NIKE STORE",
     category: "Web Design",
-    cover:
-      "/projects/UI/Nike.png",
-    stack: ["Figma","Photoshop", "UI","UX"],
+    cover: "/projects/UI/Nike.png",
+    stack: ["Figma", "Photoshop", "UI", "UX"],
     summary:
       "Discover your next favourite Nike sneaker—curated drops, bold design, effortless shopping.",
     demo: "https://www.figma.com/design/8i0talD8cpjLDAFUJI3NZT/SHOES?node-id=0-1&t=4vb7AVq9pWnkTR8k-1",
-    
   },
-   {
+  {
     id: "pv-13",
     title: "Breath Natural",
     category: "Web Design",
-    cover:
-      "/projects/UI/planto.jpg",
-    stack: ["Figma","Photoshop", "UI","UX"],
+    cover: "/projects/UI/planto.jpg",
+    stack: ["Figma", "Photoshop", "UI", "UX"],
     summary:
       "A modern Plant E-Commerce Web UI designed to inspire plant lovers everywhere",
     demo: "https://www.figma.com/design/Sog2K37VRnFgK0fvCeeOU0/Plant?node-id=0-1&t=SU11YQVCOAg7lUiU-1",
-   
   },
-   {
+  {
     id: "pv-14",
     title: "NIKE Website",
     category: "Web Design",
-    cover:
-      "/projects/UI/shoes.png",
-    stack: ["Figma","Photoshop", "UI","UX"],
+    cover: "/projects/UI/shoes.png",
+    stack: ["Figma", "Photoshop", "UI", "UX"],
     summary:
       "Explore top Nike releases, detailed views, and fast, secure purchases.",
-    demo: "https://www.figma.com/proto/8i0talD8cpjLDAFUJI3NZT/SHOES?page-id=0%3A1&node-id=8-123&viewport=509%2C504%2C0.19&t=Mfjcod0eFUvwPuLL-1&scaling=scale-down&content-scaling=fixed",
+    demo:
+      "https://www.figma.com/proto/8i0talD8cpjLDAFUJI3NZT/SHOES?page-id=0%3A1&node-id=8-123&viewport=509%2C504%2C0.19&t=Mfjcod0eFUvwPuLL-1&scaling=scale-down&content-scaling=fixed",
   },
-   {
+  {
     id: "pv-15",
     title: "Interior Design Studio",
     category: "Web Design",
-    cover:
-      "/projects/UI/interiorDesign.jpg",
-    stack: ["Figma","Photoshop", "UI","UX"],
+    cover: "/projects/UI/interiorDesign.jpg",
+    stack: ["Figma", "Photoshop", "UI", "UX"],
     summary:
       "This website guides you through refined interiors to discover your signature space.",
-    demo: "https://www.figma.com/design/NTReIxbab436gxsTqxtvs6/Interior-design?node-id=0-1&t=Jyw7g0gP70L98XNd-1",
+    demo:
+      "https://www.figma.com/design/NTReIxbab436gxsTqxtvs6/Interior-design?node-id=0-1&t=Jyw7g0gP70L98XNd-1",
   },
-   {
+  {
     id: "pv-16",
     title: "Music App",
     category: "App Design",
-    cover:
-      "/projects/UI/travel.jpg",
-    stack: ["Figma","Photoshop", "UI","UX"],
+    cover: "/projects/UI/travel.jpg",
+    stack: ["Figma", "Photoshop", "UI", "UX"],
     summary:
-      "Have you ever wondered how simplicity and elegance can enhance the mobile user experience? These screens showcase a seamless design journey—from breathtaking visuals to intuitive navigation.",
+      "Simplicity and elegance enhance the mobile UX—visuals to intuitive navigation.",
     demo: "https://www.figma.com/design/3UYQmQkuCmCuAtGEtg344j/Untitled?node-id=0-1&t=rNUnGUToLaTpW4UX-1",
   },
-   {
+  {
     id: "pv-17",
     title: "Movie App",
     category: "App Design",
-    cover:
-      "/projects/UI/movieApp.jpg",
-    stack: ["Figma","Photoshop", "UI","UX"],
+    cover: "/projects/UI/movieApp.jpg",
+    stack: ["Figma", "Photoshop", "UI", "UX"],
     summary:
-      "This project focuses on making movie discovery, selection, and watching effortless and enjoyable.",
+      "Focuses on making movie discovery, selection, and watching effortless and enjoyable.",
     demo: "https://www.figma.com/design/DtYziaKIFlix5577zxswgA/Untitled?node-id=0-1&t=ICazRBVNSo7LjQNx-1",
   },
-   {
+  {
     id: "pv-18",
     title: "Simple Website",
     category: "Web Design",
-    cover:
-      "/projects/UI/SAPA.jpg",
-    stack: ["Figma","Photoshop", "UI","UX"],
+    cover: "/projects/UI/SAPA.jpg",
+    stack: ["Figma", "Photoshop", "UI", "UX"],
     summary:
-      "Have you ever wondered how clean layouts, captivating visuals, and intuitive navigation can transform user experiences? These travel UIs are my take on designing for ease, beauty, and functionality.",
+      "Clean layouts, captivating visuals, and intuitive navigation for better UX.",
     demo: "https://www.figma.com/design/zueiaqWRhUccYCfUJakWbs/Untitled?node-id=0-1&t=bxU1TPG05RLFk92d-1",
-
   },
-   {
+  {
     id: "pv-19",
     title: "CookieVerse",
     category: "Web Application",
-    cover:
-      "/projects/web/cookieVerse.png",
-    stack: ["React.js","Vite", "Tailwind CSS","MongoDB","Spring Boot"],
+    cover: "/projects/web/cookieVerse.png",
+    stack: ["React.js", "Vite", "Tailwind CSS", "MongoDB", "Spring Boot"],
     summary:
-      "This is full-stack web application designed for food enthusiasts and aspiring chefs to learn, share, and connect through the joy of cooking.",
+      "A full-stack app where food enthusiasts learn, share, and connect through cooking.",
     demo: "https://github.com/Sarith-Samarakoon/CookieVerse",
-
   },
-   {
+  {
     id: "pv-20",
     title: "Poster",
     category: "Graphic Design",
-    cover:
-      "/projects/Graphic/p4.jpg",
+    cover: "/projects/Graphic/p4.jpg",
     stack: ["Adobe Photoshop", "Adobe Illustraor"],
   },
-      {
+  {
     id: "pv-21",
     title: "Cover Page",
     category: "Graphic Design",
-    cover:
-      "/projects/Graphic/b1.jpg",
+    cover: "/projects/Graphic/b1.jpg",
     stack: ["Adobe Photoshop", "Adobe Illustraor"],
   },
-     {
+  {
     id: "pv-22",
     title: "Banner",
     category: "Graphic Design",
-    cover:
-      "/projects/Graphic/banner1.jpg",
+    cover: "/projects/Graphic/banner1.jpg",
     stack: ["Adobe Photoshop", "Adobe Illustraor"],
   },
-     {
+  {
     id: "pv-23",
     title: "Tuition Classes Advertisement",
     category: "Graphic Design",
-    cover:
-      "/projects/Graphic/class2.jpg",
+    cover: "/projects/Graphic/class2.jpg",
     stack: ["Adobe Photoshop", "Adobe Illustraor"],
-  },   {
+  },
+  {
     id: "pv-24",
     title: "Logo",
     category: "Graphic Design",
-    cover:
-      "/projects/Graphic/l5.jpg",
+    cover: "/projects/Graphic/l5.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+    {
+    id: "pv-25",
+    title: "Cover Page",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/b2.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+    {
+    id: "pv-26",
+    title: "Bottle label design",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/1m..jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+    {
+    id: "pv-27",
+    title: "Logo",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/bus.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+    {
+    id: "pv-28",
+    title: "Logo",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/l1.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+    {
+    id: "pv-29",
+    title: "Tuition Classes Advertisement",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/class3.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+    {
+    id: "pv-30",
+    title: "Calendar",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/calendar2.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+    {
+    id: "pv-31",
+    title: "Logo",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/l3.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+    {
+    id: "pv-32",
+    title: "Logo",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/l4.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+    {
+    id: "pv-33",
+    title: "Poster",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/p6.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+    {
+    id: "pv-34",
+    title: "T-shirt Design",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/t1.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+    {
+    id: "pv-35",
+    title: "Poster",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/noraml11.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+    {
+    id: "pv-36",
+    title: "Logo",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/normal7.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+    {
+    id: "pv-37",
+    title: "Mug Design",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/mug1.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+    {
+    id: "pv-38",
+    title: "Logo",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/graj.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+    {
+    id: "pv-39",
+    title: "Bottle label design",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/2m..jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+    {
+    id: "pv-40",
+    title: "Bottle label design",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/3m..jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+    {
+    id: "pv-41",
+    title: "Bottle label design",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/4m..jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+    {
+    id: "pv-42",
+    title: "Bottle label design",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/5m.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+    {
+    id: "pv-43",
+    title: "Logo",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/l9.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+    {
+    id: "pv-44",
+    title: "Bussiness Card",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/businessCard1.png",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+    {
+    id: "pv-45",
+    title: "Bussiness Card",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/businessCard2.png",
     stack: ["Adobe Photoshop", "Adobe Illustraor"],
   },
  
-   
+    {
+    id: "pv-46",
+    title: "Logo",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/l2.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+    {
+    id: "pv-47",
+    title: "Logo",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/l10.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+
+    {
+    id: "pv-49",
+    title: "Logo",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/l7.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+    {
+    id: "pv-50",
+    title: "Tuition Classes Advertisement",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/m4.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+    {
+    id: "pv-51",
+    title: "Tuition Classes Advertisement",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/normal4.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+     {
+    id: "pv-52",
+    title: "Poster",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/p2.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+   {
+    id: "pv-53",
+    title: "FLY",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/normal5.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+   {
+    id: "pv-54",
+    title: "Tuition Classes Advertisement",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/claas1.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+   {
+    id: "pv-55",
+    title: "Calendar",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/calendar.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+   {
+    id: "pv-56",
+    title: "Poster",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/p1.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+     {
+    id: "pv-57",
+    title: "Poster",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/p1.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+     {
+    id: "pv-58",
+    title: "Poster",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/normal12.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+     {
+    id: "pv-59",
+    title: "Tuition Classes Advertisement",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/m5.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+     {
+    id: "pv-60",
+    title: "Letter D",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/LetterD.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+      {
+    id: "pv-61",
+    title: "Soap Box label design",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/soap1.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+      {
+    id: "pv-62",
+    title: "Poster",
+    category: "Graphic Design",
+    cover: "/projects/Graphic/normal6.jpg",
+    stack: ["Adobe Photoshop", "Adobe Illustraor"],
+  },
+
+
+
+
+
 ];
 
-const CATEGORIES = ["All", "Web Design UIs", "App Design UIs", "Graphic Design", "Mobile Application", "Web Application"];
+const CATEGORIES = [
+  "All",
+  "Web Design UIs",
+  "App Design UIs",
+  "Graphic Design",
+  "Mobile Application",
+  "Web Application",
+];
 
 /* --------------------------- C O M P O N E N T --------------------------- */
 export default function Services() {
@@ -338,7 +579,7 @@ export default function Services() {
       const inText =
         !q ||
         p.title.toLowerCase().includes(q) ||
-        p.summary.toLowerCase().includes(q) ||
+        (p.summary && p.summary.toLowerCase().includes(q)) ||
         p.stack.join(" ").toLowerCase().includes(q);
       return inCat && inText;
     });
@@ -352,12 +593,7 @@ export default function Services() {
 
       {/* Header */}
       <section className="mx-auto max-w-7xl px-4 pt-20 sm:px-6 lg:px-8">
-        <motion.div
-          initial="hidden"
-          animate="show"
-          variants={fade(0)}
-          className="text-center"
-        >
+        <motion.div initial="hidden" animate="show" variants={fade(0)} className="text-center">
           <h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl">
             Services &{" "}
             <span className="bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">
@@ -365,19 +601,15 @@ export default function Services() {
             </span>
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-slate-300">
-            Explore how I research, design, and build thoughtful interfaces then iterate for performance, accessibility, and polish alongside selected projects and case studies that demonstrate process, decisions, and measurable outcomes.
+            Explore how I research, design, and build thoughtful interfaces—then iterate for performance,
+            accessibility, and polish. Browse selected projects that show process, decisions, and outcomes.
           </p>
         </motion.div>
       </section>
 
       {/* Services Grid */}
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
-        >
+        <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((s, i) => (
             <motion.div variants={fade(0.05 * i)} key={s.title}>
               <Card>
@@ -448,16 +680,10 @@ export default function Services() {
 
       {/* Projects */}
       <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8" id="projects">
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
-        >
+        <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((p, i) => (
             <motion.article key={p.id} variants={fade(0.03 * i)}>
               <Card className="p-0">
-                {/* media */}
                 <div className="relative aspect-video overflow-hidden">
                   <img
                     src={p.cover}
@@ -471,12 +697,11 @@ export default function Services() {
                   </div>
                 </div>
 
-                {/* body */}
                 <div className="p-6">
                   <h3 className="text-lg font-semibold">{p.title}</h3>
-                  <p className="mt-2 line-clamp-3 text-sm text-slate-300">
-                    {p.summary}
-                  </p>
+                  {p.summary && (
+                    <p className="mt-2 line-clamp-3 text-sm text-slate-300">{p.summary}</p>
+                  )}
 
                   <div className="mt-4 flex flex-wrap gap-2">
                     {p.stack.map((t) => (
@@ -489,26 +714,25 @@ export default function Services() {
                     ))}
                   </div>
 
-                
-
-                  {/* actions */}
-                  <div className="mt-5 flex gap-3">
-                   
-                    <a
-                      href={p.demo}
-                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-purple-400 hover:text-purple-300"
-                      aria-label={`Open live demo for ${p.title}`}
-                    >
-                      <ExternalLink className="h-4 w-4" /> Live Demo
-                    </a>
-                  </div>
+                  {p.demo && (
+                    <div className="mt-5 flex gap-3">
+                      <a
+                        href={p.demo}
+                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-purple-400 hover:text-purple-300"
+                        aria-label={`Open live demo for ${p.title}`}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <ExternalLink className="h-4 w-4" /> Live Demo
+                      </a>
+                    </div>
+                  )}
                 </div>
               </Card>
             </motion.article>
           ))}
         </motion.div>
 
-        {/* Empty state */}
         {filtered.length === 0 && (
           <div className="mt-12 text-center text-slate-400">
             No projects match your filters. Try a different category or search term.
@@ -522,12 +746,12 @@ export default function Services() {
           <Card className="flex flex-col items-center p-8 text-center sm:p-12">
             <h3 className="text-xl font-semibold">Let’s build something exceptional</h3>
             <p className="mt-3 max-w-2xl text-slate-300">
-              I focus on building elegant, fast, and maintainable interfaces. Reach out for
-              consulting, collaboration, or full-time opportunities.
+              I focus on building elegant, fast, and maintainable interfaces. Reach out for consulting,
+              collaboration, or full-time opportunities.
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
               <a
-                href="mailto:hello@example.com"
+                href="yasiruln215@gmail.comcom"
                 className="rounded-xl bg-gradient-to-r from-purple-500 to-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-purple-800/20"
               >
                 Email Me

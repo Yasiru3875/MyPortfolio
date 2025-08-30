@@ -1,6 +1,8 @@
 // src/Home.jsx
 import { motion } from "framer-motion";
 import Spline from "@splinetool/react-spline";
+import { Link } from "react-router-dom";
+import { PROJECTS } from "./services";
 
 
 const fadeUp = (delay = 0) => ({
@@ -93,7 +95,7 @@ export default function Home() {
           Download CV
         </a>
         <a
-          href="#contact"
+          href="/contact"
           className="rounded-xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-blue-400/60"
         >
           Contact Me
@@ -152,7 +154,7 @@ export default function Home() {
           className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
         >
           {[
-            { t: "About Me", d: "I’m Yasiru Nuwan, a third-year computing undergraduate specializing in UI/UX." },
+            { t: "About Me", d: "I’m Yasiru Nuwan, a fourth-year computing undergraduate specializing in UI/UX." },
             { t: "Projects", d: "Interactive builds with clean UI, purposeful motion, and real-world results." },
             { t: "Certificates", d: "Continuous learning and training, recognized credentials that reflect rigorous professional standards." },
             { t: "Contact", d: "Let’s collaborate; contact me to discuss roles, projects, and opportunities together." },
@@ -174,55 +176,67 @@ export default function Home() {
         title="Featured Projects"
         subtitle="Projects where design clarity, performance, and maintainability come together"
       >
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {[1, 2, 3, 4, 5, 6].map((idx, i) => (
-            <motion.div
-              key={idx}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              variants={fadeUp(0.05 * i)}
-            >
-             
-              <Card className="p-1">
-                <div className="relative aspect-video overflow-hidden">
-                  <img
-                    src={`/projects/UI/fittness.png`}
-                    alt={`Project ${idx}`}
-                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-                </div>
+         <motion.div
+    initial="hidden"
+    whileInView="show"
+    viewport={{ once: true }}
+    className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+  >
+    {PROJECTS.slice(0, 6).map((p, i) => (
+      <motion.article key={p.id} variants={fadeUp(0.05 * i)}>
+        <Card className="p-0">
+          {/* media */}
+          <div className="relative aspect-video overflow-hidden">
+            <img
+              src={p.cover}
+              alt={p.title}
+              className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+            <div className="absolute left-3 top-3 flex gap-2">
+              <Pill>{p.category}</Pill>
+            </div>
+          </div>
 
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold">FitNexia</h3>
-                  <p className="mt-2 line-clamp-2 text-sm text-slate-300">
-                    Fitness-tracking app designed for users to seamlessly track, set, and achieve their health goals. Created with Figma, this app...
-                  </p>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    <Pill>Figma</Pill>
-                    <Pill>Photoshop</Pill>
-                    <Pill>UI</Pill>
-                    <Pill>UX</Pill>
-                  </div>
-                  <div className="mt-5 flex gap-3">
-                  
-                    <a
-                      href="#"
-                      className="text-sm font-semibold text-purple-400 hover:text-purple-300"
-                      aria-label="Open live demo"
-                    >
-                      Live Demo →
-                    </a>
-                  </div>
-                </div>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
+          {/* body */}
+          <div className="p-6">
+            <h3 className="text-lg font-semibold">{p.title}</h3>
+            <p className="mt-2 line-clamp-3 text-sm text-slate-300">
+              {p.summary}
+            </p>
+
+            <div className="mt-4 flex flex-wrap gap-2">
+              {p.stack.slice(0, 4).map((t) => (
+                <span
+                  key={t}
+                  className="rounded-lg border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] text-slate-300"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+
+            <div className="mt-5 flex gap-3">
+              {p.demo && (
+                <a
+                  href={p.demo}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-sm font-semibold text-purple-400 hover:text-purple-300"
+                  aria-label={`Open live demo for ${p.title}`}
+                >
+                  Live Demo →
+                </a>
+              )}
+            </div>
+          </div>
+        </Card>
+      </motion.article>
+    ))}
+  </motion.div>
       </Section>
-
+      
       {/* SKILLS & CERTS */}
       <Section
         id="skills"
@@ -313,7 +327,7 @@ export default function Home() {
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
               <a
-                href="mailto:hello@example.com"
+                href="yasiruln215@gmail.com"
                 className="rounded-xl bg-gradient-to-r from-purple-500 to-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-purple-800/20"
               >
                 Email Me

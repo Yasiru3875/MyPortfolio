@@ -126,41 +126,56 @@ export default function Contact() {
     try {
       setSubmitting(true);
 
-      // TODO: integrate your real endpoint here (e.g., Formspree, EmailJS, API route)
-      // Example (Formspree):
-      // const res = await fetch("https://formspree.io/f/xxxxxx", {
-      //   method: "POST",
-      //   headers: { "Content-Type": "application/json" },
-      //   body: JSON.stringify(values),
-      // });
-      // if (!res.ok) throw new Error("Network response was not ok");
+      const formData = new FormData();
+      formData.append("access_key", import.meta.env.VITE_WEB3FORMS_ACCESS_KEY);
+      formData.append("name", values.name);
+      formData.append("email", values.email);
+      formData.append("subject", values.subject);
+      formData.append("message", values.message);
+      formData.append("project_type", values.projectType);
+      formData.append("budget", values.budget);
+      formData.append("timeline", values.timeline || "Flexible");
+      formData.append("company_name", values.company_name);
+      formData.append("role", values.role);
+      formData.append("from_name", "Portfolio Inquiry - " + values.name);
+      
+      /* Note: attachments are a Web3Forms Pro feature */
+      /* if (values.file) {
+        formData.append("attachment", values.file);
+      } */
 
-      // Simulate network delay:
-      await new Promise((r) => setTimeout(r, 1200));
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
 
-      setStatus({
-        type: "success",
-        message:
-          "Thanks! Your message has been sent. I’ll get back to you within 24–48 hours.",
-      });
-      setValues({
-        name: "",
-        email: "",
-        company_name: "",
-        role: "",
-        subject: "",
-        projectType: "General Inquiry",
-        budget: "",
-        message: "",
-        file: null,
-        company: "",
-      });
-      setTouched({});
+      const data = await res.json();
+
+      if (data.success) {
+        setStatus({
+          type: "success",
+          message: "Thanks! Your message has been sent. I’ll get back to you within 24–48 hours.",
+        });
+        setValues({
+          name: "",
+          email: "",
+          company_name: "",
+          role: "",
+          subject: "",
+          projectType: "General Inquiry",
+          budget: "",
+          message: "",
+          file: null,
+          company: "",
+        });
+        setTouched({});
+      } else {
+        throw new Error(data.message || "Something went wrong.");
+      }
     } catch (err) {
       setStatus({
         type: "error",
-        message:
-          "Something went wrong while sending your message. Please try again or email me directly.",
+        message: err.message || "Something went wrong while sending your message. Please try again or email me directly.",
       });
     } finally {
       setSubmitting(false);
@@ -440,7 +455,7 @@ export default function Contact() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
                       </svg>
                       {values.file ? (
-                        <span className="text-purple-300 font-bold">{values.file.name}</span>
+                        <span className="text-purple-300 font-bold">{values.file.name} (Link sharing recommended for free plan)</span>
                       ) : (
                         <span>
                           <span className="font-semibold text-slate-200">Click to upload</span> or drag and drop<br />
@@ -448,6 +463,9 @@ export default function Contact() {
                         </span>
                       )}
                     </div>
+                    <p className="mt-1 text-[10px] text-slate-500 text-center">
+                      Note: To share large files on the free plan, please include a Google Drive or Dropbox link in your message.
+                    </p>
                     <input
                       id="file-upload"
                       name="file"

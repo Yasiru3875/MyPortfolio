@@ -63,8 +63,24 @@ const Typewriter = ({ text, delay = 1200, speed = 80 }) => {
 };
 import { Link } from "react-router-dom";
 import { PROJECTS } from "./services";
-import { SiLinkedin, SiGithub, SiX, SiTelegram, SiInstagram, SiBehance } from "react-icons/si";
-import { MonitorSmartphone, PenTool, Layers, Figma, Globe, Smartphone, Users, Library, Paintbrush, LayoutDashboard, Cpu, Search, Box, Code, Target, Flame, Code2, Activity, Cloud, Server, Zap, Database } from "lucide-react";
+import { SiLinkedin, SiGithub, SiInstagram, SiBehance } from "react-icons/si";
+import { 
+  MonitorSmartphone, 
+  PenTool, 
+  Layers, 
+  Figma, 
+  Globe, 
+  Smartphone, 
+  Users, 
+  Library, 
+  Paintbrush, 
+  LayoutDashboard, 
+  Cpu, 
+  Search, 
+  Box, 
+  Code, 
+  Target 
+} from "lucide-react";
 
 const MARQUEE_ITEMS = [
   { text: "UI/UX DESIGN", Icon: MonitorSmartphone },
@@ -147,7 +163,13 @@ const Card = ({ children, className = "" }) => (
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen text-white">
+    <motion.main 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.4 }}
+      className="relative min-h-screen text-white"
+    >
       <header className="relative overflow-hidden pt-24 sm:pt-28 lg:min-h-[78vh]">
         {/* left content grid */}
         <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:gap-12 lg:px-8">
@@ -659,6 +681,6 @@ export default function Home() {
       <footer className="border-t border-white/10 py-8 text-center text-sm text-slate-400">
         © {new Date().getFullYear()} Yasiru Nuwan — All rights reserved
       </footer>
-    </main>
+    </motion.main>
   );
 }

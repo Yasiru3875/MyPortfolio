@@ -44,7 +44,13 @@ export default function About() {
   const [showAllCerts, setShowAllCerts] = useState(false);
 
   return (
-    <main className="relative min-h-screen text-white">
+    <motion.main 
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.4, ease: "easeInOut" }}
+      className="relative min-h-screen text-white"
+    >
 
       {/* Header */}
       <section className="mx-auto max-w-7xl px-4 pt-24 sm:px-6 lg:px-8">
@@ -704,6 +710,6 @@ export default function About() {
       <footer className="border-t border-white/10 py-8 text-center text-sm text-slate-400">
         © {new Date().getFullYear()} Yasiru Nuwan — All rights reserved
       </footer>
-    </main>
+    </motion.main>
   );
 }

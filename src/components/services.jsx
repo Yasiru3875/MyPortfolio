@@ -603,7 +603,13 @@ export default function Services() {
   }, [query, cat]);
 
   return (
-    <main className="relative min-h-screen text-white">
+    <motion.main 
+      initial={{ opacity: 0, x: -20 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: 20 }}
+      transition={{ duration: 0.4, ease: "easeInOut" }}
+      className="relative min-h-screen text-white"
+    >
 
       {/* Header */}
       <section className="mx-auto max-w-7xl px-4 pt-20 sm:px-6 lg:px-8">
@@ -777,6 +783,6 @@ export default function Services() {
       <footer className="border-t border-white/10 py-8 text-center text-sm text-slate-400">
         © {new Date().getFullYear()} Yasiru Nuwan — All rights reserved
       </footer>
-    </main>
+    </motion.main>
   );
 }

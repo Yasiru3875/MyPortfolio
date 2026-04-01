@@ -168,7 +168,13 @@ export default function Contact() {
   }
 
   return (
-    <main className="relative min-h-screen text-white">
+    <motion.main 
+      initial={{ opacity: 0, scale: 0.98 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 1.02 }}
+      transition={{ duration: 0.4, ease: "easeInOut" }}
+      className="relative min-h-screen text-white"
+    >
 
       {/* Header */}
       <section className="mx-auto max-w-7xl px-4 pt-20 sm:px-6 lg:px-8">
@@ -499,7 +505,7 @@ export default function Contact() {
       <footer className="border-t border-white/10 py-8 text-center text-sm text-slate-400">
         © {new Date().getFullYear()} Yasiru Nuwan — All rights reserved
       </footer>
-    </main>
+    </motion.main>
   );
 }
 

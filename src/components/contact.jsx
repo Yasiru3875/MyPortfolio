@@ -127,7 +127,7 @@ export default function Contact() {
       setSubmitting(true);
 
       const formData = new FormData();
-      formData.append("access_key", import.meta.env.VITE_WEB3FORMS_ACCESS_KEY);
+      formData.append("access_key", "6c174527-9f6a-4478-b136-9afcb3b534b5");
       formData.append("name", values.name);
       formData.append("email", values.email);
       formData.append("subject", values.subject);

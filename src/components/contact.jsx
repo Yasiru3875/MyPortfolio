@@ -139,6 +139,9 @@ export default function Contact() {
       formData.append("role", values.role);
       formData.append("from_name", "Portfolio Inquiry - " + values.name);
       
+      console.log("Web3Forms submission initiated...");
+      console.log("Access Key being sent:", "6c174527-9f6a-4478-b136-9afcb3b534b5");
+      
       /* Note: attachments are a Web3Forms Pro feature */
       /* if (values.file) {
         formData.append("attachment", values.file);
@@ -277,7 +280,7 @@ export default function Contact() {
             variants={fade(0.1)}
           >
             <Card className="p-6 sm:p-8 flex-1 flex flex-col justify-between">
-              <h2 className="text-xl font-semibold">Project / Inquiry Form</h2>
+              <h2 className="text-xl font-semibold">Project / Inquiry Form (Updated)</h2>
               <p className="mt-2 text-sm text-slate-300">
                 Share a bit about your goals and constraints budget, timeline, team, and links help.
               </p>

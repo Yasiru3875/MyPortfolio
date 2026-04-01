@@ -254,12 +254,12 @@ export default function Home() {
                   >
                     Download CV
                   </a>
-                  <a
-                    href="/contact"
+                  <Link
+                    to="/contact"
                     className="flex h-12 items-center justify-center rounded-xl border border-white/10 bg-white/5 backdrop-blur-md px-5 sm:px-6 text-sm font-bold text-slate-300 transition-all hover:bg-white/10 hover:scale-105"
                   >
                     Contact Me
-                  </a>
+                  </Link>
                 </div>
 
                 {/* Social Dock (Right Side) */}

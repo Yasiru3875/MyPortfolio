@@ -616,11 +616,7 @@ export default function Services() {
   const [fullImage, setFullImage] = useState(null);
 
   const handleProjectClick = (p) => {
-    if (p.caseStudy && p.caseStudy.startsWith("/")) {
-      navigate(p.caseStudy);
-    } else {
-      setSelectedProject(p);
-    }
+    setSelectedProject(p);
   };
 
   const filtered = useMemo(() => {
@@ -955,14 +951,24 @@ export default function Services() {
                       </a>
                     )}
                     {(selectedProject.category === "Web Application" || selectedProject.category === "Mobile Application") && (
-                      <a
-                        href={selectedProject.caseStudy || "#"}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/5 px-6 py-3 text-sm font-bold text-white transition hover:bg-white/10"
-                      >
-                        <ChevronRight className="h-4 w-4" /> View Case Study
-                      </a>
+                      selectedProject.caseStudy && selectedProject.caseStudy.startsWith("/") ? (
+                        <Link
+                          to={selectedProject.caseStudy}
+                          onClick={() => setSelectedProject(null)}
+                          className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/5 px-6 py-3 text-sm font-bold text-white transition hover:bg-white/10"
+                        >
+                          <ChevronRight className="h-4 w-4" /> View Case Study
+                        </Link>
+                      ) : (
+                        <a
+                          href={selectedProject.caseStudy || "#"}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/5 px-6 py-3 text-sm font-bold text-white transition hover:bg-white/10"
+                        >
+                          <ChevronRight className="h-4 w-4" /> View Case Study
+                        </a>
+                      )
                     )}
                   </div>
                 </div>

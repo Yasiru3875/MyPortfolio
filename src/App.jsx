@@ -6,6 +6,9 @@ import Home from "./components/home";
 import About from "./components/about";
 import Services from "./components/services";
 import Contact from "./components/contact";
+import ConvergeCaseStudy from "./components/ConvergeCaseStudy";
+import BicCaseStudy from "./components/BicCaseStudy";
+import FitNexiaCaseStudy from "./components/FitNexiaCaseStudy";
 import AnimatedBackground from "./components/AnimatedBackground";
 import FloatingActionMenu from "./components/FloatingActionMenu";
 import ScrollToTop from "./components/ScrollToTop";
@@ -31,6 +34,9 @@ export default function App() {
               <Route path="/about" element={<About />} />
               <Route path="/services" element={<Services />} />
               <Route path="/contact" element={<Contact/>}/>
+              <Route path="/case-study/converge" element={<ConvergeCaseStudy />} />
+              <Route path="/case-study/bic" element={<BicCaseStudy />} />
+              <Route path="/case-study/fitnexia" element={<FitNexiaCaseStudy />} />
             </Routes>
           </AnimatePresence>
         </main>

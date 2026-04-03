@@ -9,6 +9,12 @@ import Contact from "./components/contact";
 import ConvergeCaseStudy from "./components/ConvergeCaseStudy";
 import BicCaseStudy from "./components/BicCaseStudy";
 import FitNexiaCaseStudy from "./components/FitNexiaCaseStudy";
+import BeatnestCaseStudy from "./components/BeatnestCaseStudy";
+import SrifoodCaseStudy from "./components/SrifoodCaseStudy";
+import InteriorDesignCaseStudy from "./components/InteriorDesignCaseStudy";
+import GymCaseStudy from "./components/GymCaseStudy";
+import EduCaseStudy from "./components/EduCaseStudy";
+import BankingCaseStudy from "./components/BankingCaseStudy";
 import AnimatedBackground from "./components/AnimatedBackground";
 import FloatingActionMenu from "./components/FloatingActionMenu";
 import ScrollToTop from "./components/ScrollToTop";
@@ -37,6 +43,12 @@ export default function App() {
               <Route path="/case-study/converge" element={<ConvergeCaseStudy />} />
               <Route path="/case-study/bic" element={<BicCaseStudy />} />
               <Route path="/case-study/fitnexia" element={<FitNexiaCaseStudy />} />
+              <Route path="/case-study/beatnest" element={<BeatnestCaseStudy />} />
+              <Route path="/case-study/srifood" element={<SrifoodCaseStudy />} />
+              <Route path="/case-study/interior-design" element={<InteriorDesignCaseStudy />} />
+              <Route path="/case-study/gym" element={<GymCaseStudy />} />
+              <Route path="/case-study/eduhub" element={<EduCaseStudy />} />
+              <Route path="/case-study/banking" element={<BankingCaseStudy />} />
             </Routes>
           </AnimatePresence>
         </main>

@@ -102,6 +102,7 @@ export const PROJECTS = [
     summary:
       "This website is crafted to captivate food enthusiasts with a seamless interface, delicious visuals, and user-friendly navigation.",
     demo: "https://www.figma.com/design/LYpWX9b1cSPHBLUpWcvXui/SRIFOOD?node-id=0-1&t=grFFMRi7BQ2sYvoH-1",
+    caseStudy: "/case-study/srifood",
   },
   {
     id: "pv-03",
@@ -112,6 +113,7 @@ export const PROJECTS = [
     summary:
       "Designed for music enthusiasts, BeatNest offers a visually appealing and intuitive interface, delivering seamless access to your favourite tunes.",
     demo: "https://www.figma.com/design/iOYJueNma4wx8M7o2m9Rk5/Untitled?node-id=0-1&t=aE6TvWsKj4ruYErs-1",
+    caseStudy: "/case-study/beatnest",
   },
   {
     id: "pv-65",
@@ -152,6 +154,7 @@ export const PROJECTS = [
     summary:
       "This sleek and modern banking app ensures users have a seamless and secure experience managing their finances.",
     demo: "https://www.figma.com/design/PQu0DjOyVnTp91Aac6Wi4n/Untitled?node-id=0-1&t=iVFDl2icjpar2fJ6-1",
+    caseStudy: "/case-study/banking",
   },
   {
     id: "pv-07",
@@ -174,6 +177,7 @@ export const PROJECTS = [
       "This project combines bold visuals, user-friendly navigation, and powerful content sections to help gyms attract new members, showcase their services, and build a strong online presence.",
     demo:
       "https://www.figma.com/proto/IzSm8A8jCIH3MLV3QYyx2M/GYM?page-id=0%3A1&node-id=1-2&p=f&viewport=353%2C114%2C0.1&t=6rbffTLot1NDVvvO-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1%3A2",
+    caseStudy: "/case-study/gym",
   },
   {
     id: "pv-09",
@@ -184,6 +188,7 @@ export const PROJECTS = [
     summary:
       "SL Edu+, an E-Learning Mobile App designed to make education accessible, engaging, and seamless for students everywhere.",
     demo: "https://www.figma.com/design/JsYZ7EW0oaCV6ItPzpWWwo/EDU-hub?node-id=0-1&t=mFC2xqVgyv5kLvXN-1",
+    caseStudy: "/case-study/eduhub",
   },
   {
     id: "pv-10",
@@ -246,6 +251,7 @@ export const PROJECTS = [
       "This website guides you through refined interiors to discover your signature space.",
     demo:
       "https://www.figma.com/design/NTReIxbab436gxsTqxtvs6/Interior-design?node-id=0-1&t=Jyw7g0gP70L98XNd-1",
+    caseStudy: "/case-study/interior-design",
   },
   {
     id: "pv-16",
